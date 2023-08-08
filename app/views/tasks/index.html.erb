@@ -1,0 +1,11 @@
+<div class= "container mt-5">
+<H1>My tasks</H1>
+
+  <% @tasks.each do |task| %>
+  <p><%= check_box_tag 'completed', '1', task.completed %> <%= link_to task.title, task_path(task) %>  <%= link_to '🗑️', task_path(task), class: 'btn btn-light', data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }  %>
+</p>
+  <% end %>
+
+
+<p><%= link_to("+Add a new task", "tasks/new") %></p>
+</div>
